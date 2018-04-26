@@ -1,0 +1,11 @@
+#!/bin/bash
+node --inspect -e 'process.stdin.on("data", function(buf) {
+    var str = buf.toString();
+    try {
+        var asObj = JSON.parse(str);
+        console.log(asObj)
+    }
+    catch (e) {
+        console.log(str);
+    }
+})'
